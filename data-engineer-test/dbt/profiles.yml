@@ -1,0 +1,8 @@
+primer_impacto:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../data/primer_impacto.duckdb'
+      schema: main
+      threads: 1

@@ -1,0 +1,14 @@
+
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: raw_projects
+      - name: raw_campaigns
+      - name: raw_routes
+      - name: raw_workers
+      - name: raw_visits
+      - name: pos_omni
+      - name: pos_gi

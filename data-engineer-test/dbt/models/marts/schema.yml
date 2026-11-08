@@ -1,0 +1,45 @@
+
+version: 2
+
+models:
+
+  - name: dim_pos_unified
+    columns:
+
+      - name: pos_unified_id
+        data_tests:
+          - unique
+          - not_null
+
+      - name: intervention_point_id
+        data_tests:
+          - unique
+
+      - name: ext_id
+        data_tests:
+          - unique
+
+      - name: match_status
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - MATCHED
+                  - OMNI_ONLY
+                  - GI_ONLY
+
+  - name: fct_visits
+    columns:
+
+      - name: visit_id
+        data_tests:
+          - unique
+          - not_null
+
+      - name: pos_unified_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_pos_unified')
+                field: pos_unified_id

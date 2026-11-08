@@ -1,0 +1,8 @@
+name: 'primer_impacto'
+version: '1.0.0'
+config-version: 2
+
+profile: 'primer_impacto'
+
+model-paths: ["models"]
+test-paths: ["tests"]

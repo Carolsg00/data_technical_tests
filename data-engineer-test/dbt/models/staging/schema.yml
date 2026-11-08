@@ -1,0 +1,93 @@
+
+version: 2
+
+models:
+
+  - name: stg_projects
+    columns:
+      - name: project_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_campaigns
+    columns:
+      - name: campaign_id
+        data_tests:
+          - unique
+          - not_null
+
+      - name: project_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_projects')
+                field: project_id
+
+  - name: stg_routes
+    columns:
+      - name: route_id
+        data_tests:
+          - unique
+          - not_null
+
+      - name: campaign_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_campaigns')
+                field: campaign_id
+
+  - name: stg_visits
+    columns:
+      - name: visit_id
+        data_tests:
+          - unique
+          - not_null
+
+      - name: route_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_routes')
+                field: route_id
+
+      - name: campaign_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_campaigns')
+                field: campaign_id
+
+      - name: intervention_point_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_pos_omni')
+                field: intervention_point_id
+
+  - name: stg_workers
+    columns:
+      - name: employee_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_pos_omni
+    columns:
+      - name: intervention_point_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_pos_gi
+    columns:
+      - name: ext_id
+        data_tests:
+          - unique
+          - not_null

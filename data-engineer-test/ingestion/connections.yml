@@ -1,0 +1,52 @@
+
+version: 1
+
+connections:
+  - name: projects
+    source: data/raw/raw_projects.csv
+    destination: raw.raw_projects
+    sync_mode: full_refresh
+    destination_sync_mode: overwrite
+    cursor_field: null
+
+  - name: campaigns
+    source: data/raw/raw_campaigns.csv
+    destination: raw.raw_campaigns
+    sync_mode: full_refresh
+    destination_sync_mode: overwrite
+    cursor_field: null
+
+  - name: routes
+    source: data/raw/raw_routes.csv
+    destination: raw.raw_routes
+    sync_mode: full_refresh
+    destination_sync_mode: overwrite
+    cursor_field: null
+
+  - name: visits
+    source: data/raw/raw_visits.csv
+    destination: raw.raw_visits
+    sync_mode: full_refresh
+    destination_sync_mode: overwrite
+    cursor_field: null
+
+  - name: workers
+    source: data/raw/raw_workers.csv
+    destination: raw.raw_workers
+    sync_mode: full_refresh
+    destination_sync_mode: overwrite
+    cursor_field: null
+
+  - name: pos_omni
+    source: data/raw/pos_omni.csv
+    destination: raw.pos_omni
+    sync_mode: full_refresh
+    destination_sync_mode: overwrite
+    cursor_field: null
+
+  - name: pos_gi
+    source: data/raw/pos_gi.csv
+    destination: raw.pos_gi
+    sync_mode: full_refresh
+    destination_sync_mode: overwrite
+    cursor_field: null
